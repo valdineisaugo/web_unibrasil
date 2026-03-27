@@ -1,0 +1,111 @@
+/* 1. RESET BÁSICO
+  Remove as margens e espaçamentos padrão do navegador para que 
+  possamos ter controle total sobre o layout.
+*/
+* {
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total dos elementos */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Define uma fonte limpa para todo o projeto */
+}
+
+/* 2. FUNDO E CENTRALIZAÇÃO (O Corpo da Página)
+  Usamos o Flexbox aqui apenas para colocar a calculadora bem no centro da tela.
+*/
+body {
+    display: flex;             /* Ativa o modo flexível */
+    justify-content: center;   /* Centraliza a calculadora na horizontal */
+    align-items: center;       /* Centraliza a calculadora na vertical */
+    height: 100vh;             /* Faz o body ocupar 100% da altura da tela */
+    background-color: #2c3e50; /* Uma cor de fundo escura e elegante para a página */
+}
+
+/* 3. A CARCAÇA DA CALCULADORA
+  Este é o contêiner principal que comporta o visor e os botões.
+*/
+.calculator {
+    background-color: #333;    /* Fundo cinza escuro para a calculadora */
+    padding: 20px;             /* Espaço interno entre a borda e os botões/visor */
+    border-radius: 10px;       /* Arredonda as pontas da calculadora */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Cria uma sombra para dar efeito 3D flutuante */
+    width: 300px;              /* Define uma largura fixa para não ficar muito larga */
+}
+
+/* 4. O VISOR (A Tela onde aparecem os números)*/
+.display {
+    background-color: #fff;    /* Fundo branco para dar contraste com os números */
+    color: #333;               /* Cor do texto (números) cinza escuro */
+    font-size: 2rem;           /* Tamanho grande para a fonte */
+    text-align: right;         /* Alinha os números à direita (padrão de calculadoras) */
+    padding: 15px;             /* Espaço interno para os números não grudarem na borda */
+    border-radius: 5px;        /* Bordas levemente arredondadas no visor */
+    margin-bottom: 20px;       /* Cria um espaço entre o visor e a área dos botões abaixo dele */
+    overflow-x: auto;          /* Se o número for muito grande, permite rolar para o lado */
+    white-space: nowrap;       /* Impede que os números quebrem para a linha de baixo */
+}
+
+/* 5. O CONTÊINER DOS BOTÕES (Grade)
+  Aqui o CSS Grid ajuda organizando os botões perfeitamente.
+*/
+.buttons {
+    display: grid;             /* Ativa o sistema de grade 2D */
+    grid-template-columns: repeat(4, 1fr); /* Cria exatamente 4 colunas de larguras iguais (1 fração cada) */
+    gap: 10px;                 /* Cria o vão (espaçamento) de 10px entre cada botão */
+}
+
+/* 6. ESTILO BASE DE TODOS OS BOTÕES
+*/
+.btn {
+    padding: 15px;             /* Deixa o botão fácil de clicar */
+    font-size: 1.2rem;         /* Aumenta o tamanho do texto dentro do botão */
+    border: none;              /* Remove a borda feia padrão do HTML */
+    border-radius: 5px;        /* Arredonda os cantos dos botões */
+    background-color: #ecf0f1; /* Cor de fundo cinza bem claro */
+    cursor: pointer;           /* Muda o ícone do mouse para a "mãozinha" ao passar por cima */
+    transition: background-color 0.2s; /* Faz a mudança de cor ao passar o mouse ser suave, não brusca */
+}
+
+/* Efeito Hover genérico: escurece um pouco qualquer botão ao passar o mouse */
+.btn:hover {
+    background-color: #bdc3c7;
+}
+
+/* 7. BOTÕES DE OPERADORES (+, -, *, /)*/
+.btn.operator {
+    background-color: #f39c12; /* Cor laranja para destacar as operações matemáticas */
+    color: white;              /* Muda a cor do texto/símbolo para branco */
+}
+
+.btn.operator:hover {
+    background-color: #e67e22; /* Laranja um pouco mais escuro no hover */
+}
+
+/* 8. BOTÃO DE LIMPAR (C)*/
+.btn.clear {
+    background-color: #e74c3c; /* Cor vermelha para indicar uma ação de apagar/deletar */
+    color: white;
+}
+
+.btn.clear:hover {
+    background-color: #c0392b; /* Vermelho mais escuro no hover */
+}
+
+/* 9. BOTÃO DE IGUAL (=)
+  Este botão é especial porque ele é mais alto que os outros.
+*/
+.btn.equals {
+    background-color: #2ecc71; /* Cor verde para indicar o resultado/conclusão */
+    color: white;
+    grid-row: span 2;          /* Manda este botão se esticar e ocupar a altura de 2 linhas! */
+}
+
+.btn.equals:hover {
+    background-color: #27ae60; /* Verde escuro no hover */
+}
+
+/* 10. BOTÃO ZERO (0)
+  Este botão é especial porque ele é mais largo que os outros.
+*/
+.btn.zero {
+    grid-column: span 2;       /* Manda este botão se esticar e ocupar a largura de 2 colunas! */
+}

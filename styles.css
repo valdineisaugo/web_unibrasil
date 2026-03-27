@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  color: #58a6ff;
+}
+
+button {
+  background: #238636;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.painel{
+  background: #21262d;
+  padding: 20px;  
+  border-radius: 8px;
+  margin-top: 20px; 
+  display: grid;
+  place-items: center;
+  margin: 0 auto;  
+  width: 300px;
+}
+
+.botao-link {
+    display: inline-block;        /* Permite definir largura e altura, se precisar */
+    padding: 10px 20px;           /* Espaçamento interno */
+    background-color: #3498db;    /* Cor de fundo */
+    color: white;                 /* Cor do texto */
+    text-decoration: none;        /* Remove o sublinhado padrão dos links */
+    border-radius: 5px;           /* Arredonda as bordas */
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s; /* Deixa a mudança de cor suave */
+}
+
+/* Efeito ao passar o mouse por cima */
+.botao-link:hover {
+    background-color: #2980b9;
+}
+
+
